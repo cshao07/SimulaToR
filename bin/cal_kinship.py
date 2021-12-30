@@ -2,7 +2,7 @@
 # !/usr/bin/python
 """
 Usage:
-    SimulaToR cal_2person [options]-o OUT -r RELATION -c PATH_C -z PATH_Z
+    SimulaToR cal_kinship [options]-o OUT -r RELATION -c PATH_C -z PATH_Z
 
 Options:
     -h --help                       Show help message.
@@ -30,14 +30,14 @@ Created on Tue Nov 19 12:49:25 2019
 @author: xiaozhutousan
 """
 
-__all__ = ['cal_2person']
+__all__ = ['cal_kinship']
 
 
 @logger.logger
-def cal_2person(options):
+def cal_kinship(options):
     print(options['--output'])
     dir_func.check_dir(options['--output'])
-    relations = {'PC', 'FS', 'HS', 'GG', 'UN', 'FC','SHS'}
+    relations = {'PC', 'FS', 'HS', 'GG', 'UN', 'FC'}
     if options['--relation'] not in relations:
         sys.exit('Error::Unsupported relationship!')
     else:
@@ -144,11 +144,17 @@ class cal_2person_class:
                     self.formula = 'k0'
                     self.lr = '%.4f' % ito
                     self.ibs = '0'
-                    return
-                return
-            return
+            else:
+                sys.exit('Error::Please Check Code!')
+        else:
+            sys.exit('Error::Please Check Code!')
+
+
+
+
+
         
-def cal_2person_func(freDir, resultDir, k, C_path, Z_path):
+  def cal_2person_func(freDir, resultDir, k, C_path, Z_path):
     marker_list = dir_func.sort_dir(freDir)
     c_samples = len(dir_func.sort_dir(C_path))
     z_samples = len(dir_func.sort_dir(Z_path))

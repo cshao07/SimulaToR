@@ -17,11 +17,8 @@ Usage: SimulaToR <command> [options]
 Command:
     transfre         Transfer population frequency file to csv format 
     create           Create simulated individuals to construct a family
-    cal_2person      Calculate LR and IBS score in kinship testing of two persons
-    cal_3person      Calculate LR and IBS score in kinship testing of three persons
+    cal_kinship      Calculate LR and IBS score in kinship testing of two persons
     export           Export the calculation results to a single file
-    kde              Plot kde figure for two group of results
-    ftest            F-test and plot roc figure for two group of results
 '''
 
 
@@ -39,26 +36,14 @@ def main():
         from . import create
         create.create(docopt(create.__doc__, version=__version__),
                       command=command_log, name='create')
-    elif sys.argv[1] == 'cal_2person':
-        from . import cal_2person
-        cal_2person.cal_2person(docopt(cal_2person.__doc__, version=__version__),
+    elif sys.argv[1] == 'cal_kinship':
+        from . import cal_kinship
+        cal_kinship.cal_kinship(docopt(cal_kinship.__doc__, version=__version__),
                                 command=command_log, name='cal_2person')
-    elif sys.argv[1] == 'cal_3person':
-        from . import cal_3person
-        cal_3person.cal_3person(docopt(cal_3person.__doc__, version=__version__),
-                                command=command_log, name='cal_3person')
     elif sys.argv[1] == 'export':
         from . import export
         export.export(docopt(export.__doc__, version=__version__),
                       command=command_log, name='export')
-    elif sys.argv[1] == 'kde':
-        from . import kde
-        kde.kde(docopt(kde.__doc__, version=__version__),
-                  command=command_log, name='kde')
-    elif sys.argv[1] == 'ftest':
-        from . import ftest
-        ftest.ftest(docopt(ftest.__doc__, version=__version__),
-                  command=command_log, name='ftest')
     else:
         sys.exit(help_doc)
 

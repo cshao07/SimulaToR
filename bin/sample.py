@@ -5,7 +5,7 @@ Created on Tue Nov 19 12:49:25 2019
 @author: xiaozhutousan
 """
 
-__all__ = {'create_sample', 'load_sample', 'load_result'}
+__all__ = {'create_sample', 'load_sample', 'load_result_fs', 'load_result_nfs'}
 
 import pandas as pd
 import re
