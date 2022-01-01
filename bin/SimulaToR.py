@@ -39,7 +39,7 @@ def main():
     elif sys.argv[1] == 'cal_kinship':
         from . import cal_kinship
         cal_kinship.cal_kinship(docopt(cal_kinship.__doc__, version=__version__),
-                                command=command_log, name='cal_2person')
+                                command=command_log, name='cal_kinship')
     elif sys.argv[1] == 'export':
         from . import export
         export.export(docopt(export.__doc__, version=__version__),

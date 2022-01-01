@@ -42,11 +42,11 @@ def cal_kinship(options):
         sys.exit('Error::Unsupported relationship!')
     else:
         print('Start calculating...')
-        cal_2person_func(options['--frequency_file'], options['--output'],
+        cal_kinship_func(options['--frequency_file'], options['--output'],
                          options['--relation'], options['--C_path'], options['--Z_path'])
 
 
-class cal_2person_class:
+class cal_kinship_class:
     def __init__(self, freDir, locus, k, C, Z):
         self.sample_name = C.sample_name + '&' + Z.sample_name + '_' + k
         df = pd.read_csv('%s%s%s' % (freDir, '/', locus), header=0, dtype=str)
@@ -154,7 +154,7 @@ class cal_2person_class:
 
 
         
-  def cal_2person_func(freDir, resultDir, k, C_path, Z_path):
+  def cal_kinship_func(freDir, resultDir, k, C_path, Z_path):
     marker_list = dir_func.sort_dir(freDir)
     c_samples = len(dir_func.sort_dir(C_path))
     z_samples = len(dir_func.sort_dir(Z_path))
@@ -179,7 +179,7 @@ class cal_2person_class:
             Z_name_list.append(Z.sample_name)
             Z_a1_list.append(Z.allele1)
             Z_a2_list.append(Z.allele2)
-            result = cal_2person_class(freDir, i, k, C, Z)
+            result = cal_kinship_class(freDir, i, k, C, Z)
             formula_list.append(result.formula)
             lr_list.append(result.lr)
             ibs_list.append(result.ibs)
