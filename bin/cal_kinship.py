@@ -57,7 +57,7 @@ class cal_kinship_class:
             if df.iloc[i, 0] == C.allele1:
                 p_i = marker.load_allele(freDir, locus, i)
         for j in range(len(df)):
-            if df.iloc[j, 0] == C.allele1:
+            if df.iloc[j, 0] == C.allele2:
                 p_j = marker.load_allele(freDir, locus, j)
         if C.allele1 == C.allele2:
             if Z.allele1 == Z.allele2:
